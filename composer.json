@@ -1,0 +1,35 @@
+{
+  "authors": [
+    {
+      "name": "Walter Nuñez",
+      "email": "icarosnet@gmail.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "FrameWork/DevTool/Error/checkErrorEngine.php"
+    ]
+  },
+  "config": {
+    "optimize-autoloader": true
+  },
+  "description": "This project provide repository provide the minimum base to start development using Docker and Last Hammer 2 Framework",
+  "homepage": "https://github.com/arcanisgk/Last-Hammer-2",
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "name": "last-hammer-2/seed",
+  "prefer-stable": true,
+  "require": {
+    "php": "^8.1",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-xml": "*",
+    "phpmailer/phpmailer": "^6.6"
+  },
+  "scripts": {
+    "post-update-cmd": [
+      "@composer dump-autoload"
+    ]
+  },
+  "type": "project"
+}

@@ -1,4 +1,7 @@
-/.idea/
-/.htaccess
-/.user.ini
-*.log
+.idea
+composer.lock
+/vendor/*
+/docker/data/mysql/*
+/docker/logs/apache2/*.log
+/docker/logs/mysql/*.log
+/docker/logs/xdebug/*.log
