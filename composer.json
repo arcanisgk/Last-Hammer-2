@@ -6,8 +6,13 @@
     }
   ],
   "autoload": {
+    "psr-4": {
+      "ArcanisGK\\LastHammer2\\FrameWork\\": "FrameWork/",
+      "ArcanisGK\\LastHammer2\\Repository\\": "Repository/"
+    },
     "files": [
-      "FrameWork/DevTool/Error/checkErrorEngine.php"
+      "FrameWork/DevTool/Error/Init/InitDevTool.php",
+      "FrameWork/DevTool/ExposeData/Init/InitExposeEngine.php"
     ]
   },
   "config": {
@@ -17,7 +22,7 @@
   "homepage": "https://github.com/arcanisgk/Last-Hammer-2",
   "license": "MIT",
   "minimum-stability": "stable",
-  "name": "last-hammer-2/seed",
+  "name": "arcanisgk/lasthammer2",
   "prefer-stable": true,
   "require": {
     "php": "^8.1",

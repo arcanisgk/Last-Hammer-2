@@ -11,14 +11,18 @@ services:
       - "${HOST_MACHINE_SECURE_HOST_PORT}:443"
     links:
       - database
+    env_file:
+      - ./../.env
     volumes:
-      - ${DOCUMENT_ROOT-./../}:/var/www/html:rw
+      - ./../:/var/www/html:rw
+      - ${DOCUMENT_ROOT-./../public}:/var/www/html:rw
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/php.ini
       - ${SSL_DIR-./config/ssl}:/etc/apache2/ssl/
       - ${VHOSTS_DIR-./config/vhosts}:/etc/apache2/sites-enabled
       - ${LOG_DIR-./logs/apache2}:/var/log/apache2
       - ${XDEBUG_LOG_DIR-./logs/xdebug}:/var/log/xdebug
     environment:
+      WEB_MASTER: ${WEB_MASTER}
       APACHE_DOCUMENT_ROOT: ${APACHE_DOCUMENT_ROOT-/var/www/html}
       PMA_PORT: ${HOST_MACHINE_PMA_PORT}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -47,7 +51,6 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
   phpmyadmin:
     image: phpmyadmin
-    restart: always
     container_name: "${COMPOSE_PROJECT_NAME}-phpmyadmin"
     links:
       - database
@@ -68,7 +71,6 @@ services:
       - /sessions
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
   redis:
-    restart: always
     container_name: "${COMPOSE_PROJECT_NAME}-redis"
     image: redis:latest
     ports:
